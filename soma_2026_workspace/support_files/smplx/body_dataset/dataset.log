@@ -1,0 +1,24 @@
+synthetic_body_dataset:prepare_synthetic_body_dataset:125 -- Dumping SOMA synthetic_body_dataset at /is/cluster/scratch/nghorbani/soma/data/V48_01_HDM05_NoCAESAR/body_dataset
+synthetic_body_dataset:prepare_synthetic_body_dataset:127 -- These parameters will be used: unified_frame_rate=30, num_hand_var_perseq=15, animate_face=False, animate_hand=False,num_timeseq_frames=1, num_frames_overlap=0
+body_synthesizer:__init__:56 -- Starting to synthesize body/markers
+body_synthesizer:body_populate_source:258 -- Body: 00028 sequences found from AMASS subset HumanEva. used_babel = False
+body_synthesizer:body_populate_source:258 -- Body: 00252 sequences found from AMASS subset ACCAD. used_babel = False
+body_synthesizer:body_populate_source:258 -- Body: 00037 sequences found from AMASS subset TotalCapture. used_babel = False
+body_synthesizer:body_populate_source:258 -- Body: 01983 sequences found from AMASS subset CMU. used_babel = False
+body_synthesizer:body_populate_source:258 -- Body: 00110 sequences found from AMASS subset Transitions. used_babel = False
+body_synthesizer:body_populate_source:258 -- Body: 00035 sequences found from AMASS subset PosePrior. used_babel = False
+body_synthesizer:betas_populate_source:342 -- Betas: 0003 shapes chosen from  HumanEva for vald
+body_synthesizer:betas_populate_source:342 -- Betas: 0020 shapes chosen from  ACCAD for vald
+body_synthesizer:betas_populate_source:342 -- Betas: 0005 shapes chosen from  TotalCapture for vald
+body_synthesizer:betas_populate_source:342 -- Betas: 0096 shapes chosen from  CMU for train
+body_synthesizer:betas_populate_source:342 -- Betas: 0001 shapes chosen from  Transitions for train
+body_synthesizer:betas_populate_source:342 -- Betas: 0003 shapes chosen from  PosePrior for train
+synthetic_body_dataset:prepare_synthetic_body_dataset:161 -- --------------- Dataset Split TRAIN ------------------
+body_synthesizer:_body_sampler:78 -- Total body parameter sequences 02128 
+body_synthesizer:_betas_sampler:185 -- Total beta parameters 00100 
+synthetic_body_dataset:prepare_synthetic_body_dataset:182 -- Dumping 1043609 data points for train split as final pytorch pt files.
+synthetic_body_dataset:prepare_synthetic_body_dataset:161 -- --------------- Dataset Split VALD ------------------
+body_synthesizer:_body_sampler:78 -- Total body parameter sequences 00317 
+body_synthesizer:_betas_sampler:185 -- Total beta parameters 00028 
+synthetic_body_dataset:prepare_synthetic_body_dataset:182 -- Dumping 137483 data points for vald split as final pytorch pt files.
+synthetic_body_dataset:prepare_synthetic_body_dataset:210 -- body_dataset_dir: /is/cluster/scratch/nghorbani/soma/data/V48_01_HDM05_NoCAESAR/body_dataset

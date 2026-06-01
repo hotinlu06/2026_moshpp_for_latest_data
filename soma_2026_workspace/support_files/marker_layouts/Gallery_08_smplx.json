@@ -1,0 +1,49 @@
+{
+    "markersets": [
+        {
+            "distance_from_skin": 0.0095,
+            "indices": {
+                "WaistLFront": 3309,
+                "WaistRFront": 6072,
+                "WaistLBack": 5520,
+                "WaistRBack": 6278,
+                "BackTop": 5350,
+                "Chest": 5531,
+                "BackLeft": 3384,
+                "BackRight": 6145,
+                "HeadTop": 9011,
+                "HeadFront": 8994,
+                "HeadSide": 1988,
+                "LShoulderBack": 4430,
+                "LShoulderTop": 3340,
+                "LElbowOut": 4377,
+                "LUArmHigh": 4138,
+                "LHandOut": 4612,
+                "LWristOut": 4823,
+                "LWristIn": 4856,
+                "RShoulderBack": 6002,
+                "RShoulderTop": 7169,
+                "RElbowOut": 6995,
+                "RUArmHigh": 7185,
+                "RHandOut": 7353,
+                "RWristOut": 7559,
+                "RWristIn": 7453,
+                "LKneeOut": 3677,
+                "LThigh": 3577,
+                "LAnkleOut": 5758,
+                "LShin": 3704,
+                "LToeOut": 5810,
+                "LToeIn": 5855,
+                "RKneeOut": 6438,
+                "RThigh": 6338,
+                "RAnkleOut": 8452,
+                "RShin": 6465,
+                "RToeOut": 8504,
+                "RToeIn": 8549
+            },
+            "marker_radius": 0.0095,
+            "template_fname": "/home/u3625378/2026_moshpp_for_latest_data/soma_2026_workspace/support_files/smplx_template.obj",
+            "type": "ball"
+        }
+    ]
+}

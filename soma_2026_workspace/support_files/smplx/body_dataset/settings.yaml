@@ -1,0 +1,19 @@
+amass_splits:
+  vald:
+  - HumanEva
+  - ACCAD
+  - TotalCapture
+  train:
+  - CMU
+  - Transitions
+  - PosePrior
+gender: neutral
+unified_frame_rate: 30
+num_hand_var_perseq: 15
+num_betas: 10
+num_expressions: 80
+surface_model_type: smplx
+num_timeseq_frames: 1
+num_frames_overlap: 0
+animate_face: false
+animate_hand: false

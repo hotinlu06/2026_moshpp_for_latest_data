@@ -1,0 +1,16 @@
+data/
+runtime_mosh/
+assets/
+__pycache__/
+
+*.pkl
+*.c3d
+*.csv
+*.mp4
+*.npz
+*.pt
+*.h5
+*.blend
+
+.DS_Store
+.env
