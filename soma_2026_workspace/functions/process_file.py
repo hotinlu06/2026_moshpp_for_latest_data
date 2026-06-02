@@ -172,22 +172,48 @@ def batch_convert_pipeline(csv_dir: str, output_dir: str, frame_rate: float = 30
 
 # ================= Execution Entry =================
 if __name__ == "__main__":
-    # Change this to your input directory (unprocessed old data)
-    INPUT_DIR = "/home/hotin/2026_moshpp_for_latest_data/data_2026/04_Boss"
-    
-    # Change this to your output directory (one step completion)
-    OUTPUT_DIR = "/home/hotin/2026_moshpp_for_latest_data/soma_2026_workspace/data/Boss_04"
-    
-    # Parameter settings
-    FRAME_RATE = 240.0  # change this if your original data has a different frame rate
-    ORIGINAL_UNIT = 'm'  
-    TARGET_UNIT = 'mm'   
-    
-    print("🚀 Starting integrated pipeline: [CSV without Residual] -> [Auto clean/Calculate Residual] -> [Export standardized C3D]")
-    batch_convert_pipeline(
-        csv_dir=INPUT_DIR,
-        output_dir=OUTPUT_DIR,
-        frame_rate=FRAME_RATE,
-        original_unit=ORIGINAL_UNIT,
-        target_unit=TARGET_UNIT
-    )
+    import argparse
+
+    parser = argparse.ArgumentParser(description="CSV -> C3D batch converter")
+    parser.add_argument("--input-dir", "-i", required=True,
+                        help="Directory containing *.csv (one scene), or a parent dir if --recursive.")
+    parser.add_argument("--output-dir", "-o", required=True,
+                        help="Destination for .c3d files. With --recursive, this is the parent; "
+                             "one subfolder per scene is created inside.")
+    parser.add_argument("--recursive", "-r", action="store_true",
+                        help="Treat --input-dir as a parent containing one subdir per scene "
+                             "(e.g. data_2026/Data with 04_Boss/, 04_Gallery/, ...).")
+    parser.add_argument("--actor", default="Actor_01",
+                        help="Actor subfolder name used under each scene's output dir.")
+    parser.add_argument("--frame-rate", type=float, default=240.0)
+    parser.add_argument("--original-unit", default="m", choices=["m", "mm"])
+    parser.add_argument("--target-unit", default="mm", choices=["m", "mm"])
+    args = parser.parse_args()
+
+    print("Starting CSV -> C3D conversion")
+
+    if args.recursive:
+        scenes = sorted(d for d in os.listdir(args.input_dir)
+                        if os.path.isdir(os.path.join(args.input_dir, d)))
+        if not scenes:
+            print(f"No scene subdirs found under {args.input_dir}")
+        for scene in scenes:
+            src = os.path.join(args.input_dir, scene)
+            dst = os.path.join(args.output_dir, scene, args.actor)
+            print(f"\n=== Scene: {scene} ===")
+            print(f"    input : {src}")
+            print(f"    output: {dst}")
+            batch_convert_pipeline(
+                csv_dir=src, output_dir=dst,
+                frame_rate=args.frame_rate,
+                original_unit=args.original_unit,
+                target_unit=args.target_unit,
+            )
+    else:
+        batch_convert_pipeline(
+            csv_dir=args.input_dir,
+            output_dir=args.output_dir,
+            frame_rate=args.frame_rate,
+            original_unit=args.original_unit,
+            target_unit=args.target_unit,
+        )
